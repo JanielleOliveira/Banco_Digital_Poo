@@ -9,6 +9,7 @@ public class ContaPoupanca extends Conta {
     }
     public void aplicarTaxaRendimento(){
         saldo += saldo + taxaRendimento;
+        registrarTransacao("Taxa de Rendimento", taxaRendimento);
     }
 
     @Override

@@ -12,6 +12,7 @@ public class ContaCorrente extends Conta {
     public void aplicarTaxaManutencao() {
         if (saldo >= taxaManutencao) {
             saldo -= taxaManutencao;
+            registrarTransacao("Taxa de Manutenção", taxaManutencao);
         } else {
             System.out.println("Saldo insuficiente para aplicar a taxa de manutenção!");
         }

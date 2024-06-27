@@ -27,6 +27,7 @@ public abstract class Conta implements IConta {
     @Override
     public void depositar(double valor) {
         saldo += valor;
+        registrarTransacao("Depósito", valor);
 
     }
 
@@ -34,6 +35,7 @@ public abstract class Conta implements IConta {
     public void sacar(double valor) {
         if (saldo >= valor) {
             saldo -= valor;
+            registrarTransacao("Saque", valor);
         } else {
             System.out.println("Saldo insuficiente!");
         }
@@ -44,6 +46,7 @@ public abstract class Conta implements IConta {
         if (saldo >= valor) {
             this.sacar(valor);
             destino.depositar(valor);
+            registrarTransacao("Transferência", valor);
         } else {
             System.out.println("Saldo insuficiente!");
         }
@@ -57,18 +60,21 @@ public abstract class Conta implements IConta {
 
     @Override
     public int getNumeroConta() {
+
         return numeroConta;
     }
 
     @Override
     public Cliente getCliente() {
+
         return cliente;
     }
 
     public List<Transacao> getHistoricoTransacoes() {
         return historicoTransacoes;
     }
-    protected void registrarTransacao(String tipo, double valor){
+
+    protected void registrarTransacao(String tipo, double valor) {
         Transacao transacao = new Transacao(tipo, valor, saldo);
         historicoTransacoes.add(transacao);
     }
