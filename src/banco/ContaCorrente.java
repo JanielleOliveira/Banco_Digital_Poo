@@ -2,8 +2,19 @@ package banco;
 
 public class ContaCorrente extends Conta {
 
-    public ContaCorrente(Cliente cliente) {
+    private double taxaManutencao;
+
+    public ContaCorrente(Cliente cliente, double taxaManutencao) {
         super(cliente);
+        this.taxaManutencao = taxaManutencao;
+    }
+
+    public void aplicarTaxaManutencao() {
+        if (saldo >= taxaManutencao) {
+            saldo -= taxaManutencao;
+        } else {
+            System.out.println("Saldo insuficiente para aplicar a taxa de manutenção!");
+        }
     }
 
     @Override
