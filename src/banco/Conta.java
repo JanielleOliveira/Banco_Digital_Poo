@@ -16,6 +16,7 @@ public abstract class Conta implements IConta {
         this.numeroConta = SEQUENCIAL++;
         this.cliente = cliente;
         this.saldo = 0.0; // Saldo inicial é zero
+
     }
 
     @Override

@@ -13,7 +13,7 @@ public interface IConta {
 
     int getNumeroConta();
 
-    //Cliente getCliente();
+    Cliente getCliente();
 
     void imprimirExtrato();
 }
