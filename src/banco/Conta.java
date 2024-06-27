@@ -1,5 +1,8 @@
 package banco;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //Esta é uma classe abstrata que implementa a interface IConta e define as propriedades comuns a todas as contas bancárias.
 public abstract class Conta implements IConta {
 
@@ -10,12 +13,14 @@ public abstract class Conta implements IConta {
     protected double saldo;
     protected int numeroConta;
     protected Cliente cliente;
+    protected List<Transacao> historicoTransacoes;
 
     public Conta(Cliente cliente) {
         this.agencia = Conta.AGENCIA_PADRAO;
         this.numeroConta = SEQUENCIAL++;
         this.cliente = cliente;
         this.saldo = 0.0; // Saldo inicial é zero
+        this.historicoTransacoes = new ArrayList<>();
 
     }
 
@@ -58,6 +63,14 @@ public abstract class Conta implements IConta {
     @Override
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public List<Transacao> getHistoricoTransacoes() {
+        return historicoTransacoes;
+    }
+    protected void registrarTransacao(String tipo, double valor){
+        Transacao transacao = new Transacao(tipo, valor, saldo);
+        historicoTransacoes.add(transacao);
     }
 
     protected void imprimirInfosComuns() {
