@@ -3,6 +3,7 @@ package banco;
 import java.util.ArrayList;
 import java.util.List;
 
+// Esta é uma classe abstrata que implementa a interface IConta e define as propriedades comuns a todas as contas bancárias.
 public abstract class Conta implements IConta {
 
     private static final int AGENCIA_PADRAO = 1;
@@ -12,7 +13,7 @@ public abstract class Conta implements IConta {
     protected double saldo;
     protected int numeroConta;
     protected Cliente cliente;
-    protected List<Transacao> historicoTransacoes;
+    protected List<Transacao> historicoTransacoes;// Inicializa o histórico de transações como uma lista vazia
 
     public Conta(Cliente cliente) {
         this.agencia = Conta.AGENCIA_PADRAO;
@@ -69,15 +70,19 @@ public abstract class Conta implements IConta {
         return cliente;
     }
 
+    // Retorna o histórico de transações desta conta
     public List<Transacao> getHistoricoTransacoes() {
+
         return historicoTransacoes;
     }
 
+    // Registra uma nova transação no histórico
     protected void registrarTransacao(String tipo, double valor) {
         Transacao transacao = new Transacao(tipo, valor, saldo);
         historicoTransacoes.add(transacao);
     }
 
+    // Imprime informações comuns da conta (titular, agência, número da conta e saldo)
     protected void imprimirInfosComuns() {
         System.out.println(String.format("Titular: %s", this.cliente.getNome()));
         System.out.println(String.format("CPF:  %s", this.cliente.getCpf()));

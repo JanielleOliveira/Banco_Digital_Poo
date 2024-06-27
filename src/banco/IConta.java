@@ -4,6 +4,7 @@ package banco;
 
 import java.util.List;
 
+// Define os métodos que todas as contas devem implementar.
 public interface IConta {
     void depositar(double valor);
 
