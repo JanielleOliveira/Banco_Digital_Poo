@@ -2,8 +2,13 @@ package banco;
 
 public class ContaPoupanca extends Conta {
 
-    public ContaPoupanca(Cliente cliente) {
+    private double taxaRendimento;
+    public ContaPoupanca(Cliente cliente, double taxaRendimento) {
         super(cliente);
+        this.taxaRendimento = taxaRendimento;
+    }
+    public void aplicarTaxaRendimento(){
+        saldo += saldo + taxaRendimento;
     }
 
     @Override
