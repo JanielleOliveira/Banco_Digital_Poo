@@ -28,9 +28,17 @@ public class Main {
         System.out.println("=== TRANSFERÊNCIAS ===");
         contaCorrente.transferir(500, contaPoupanca);
 
-        System.out.println("Saldo Conta " + contaCorrente.getNumeroConta()+ " após transferência: " + contaCorrente.getSaldo());
-        System.out.println("Saldo Conta  "+ contaPoupanca.getNumeroConta() + " após transferência: " + contaPoupanca.getSaldo());
+        System.out.println("Saldo Conta " + contaCorrente.getNumeroConta() + " após transferência: " + contaCorrente.getSaldo());
+        System.out.println("Saldo Conta  " + contaPoupanca.getNumeroConta() + " após transferência: " + contaPoupanca.getSaldo());
 
+        System.out.println("\n === HISTÓRICO DE TRANSAÇÕES CONTA CORRENTE ===");
+        for (Transacao transacao : contaCorrente.getHistoricoTransacoes()) {
+            System.out.println(transacao);
+        }
+        System.out.println("\n === HISTÓRICO DE TRANSAÇÕES CONTA POUPANÇA ===");
+        for (Transacao transacao : contaPoupanca.getHistoricoTransacoes()) {
+            System.out.println(transacao);
+        }
 
 
     }

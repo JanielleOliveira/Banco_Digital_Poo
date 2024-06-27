@@ -36,7 +36,7 @@ public class Banco {
             aplicarTaxaManutencao();
             aplicarRendimentos();
             System.out.println("Após " + i + " mês(es): ");
-            for (IConta conta : contas){
+            for (IConta conta : contas) {
                 System.out.println("Saldo da conta " + conta.getNumeroConta() + ": " + conta.getSaldo());
             }
         }

@@ -3,7 +3,6 @@ package banco;
 import java.util.ArrayList;
 import java.util.List;
 
-//Esta é uma classe abstrata que implementa a interface IConta e define as propriedades comuns a todas as contas bancárias.
 public abstract class Conta implements IConta {
 
     private static final int AGENCIA_PADRAO = 1;

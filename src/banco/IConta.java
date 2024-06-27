@@ -2,6 +2,8 @@ package banco;
 
 // Define os métodos que todas as contas devem implementar.
 
+import java.util.List;
+
 public interface IConta {
     void depositar(double valor);
 
@@ -16,4 +18,6 @@ public interface IConta {
     Cliente getCliente();
 
     void imprimirExtrato();
+
+    List<Transacao> getHistoricoTransacoes();
 }
